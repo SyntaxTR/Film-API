@@ -1,0 +1,23 @@
+{
+    "name": "mucahittopcu/filmapi",
+    "description": "film api package for test case",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Mucahittopcu\\Filmapi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mücahit TOPÇU",
+            "email": "mucahit.topcuu2@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/support": "^9.0",
+        "guzzlehttp/guzzle": "^7.8"
+    }
+}

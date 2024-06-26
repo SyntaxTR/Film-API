@@ -1,7 +1,6 @@
 <?php
 namespace MucahitTopcu\Filmapi\Controllers;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use DateTime;
 
 class DateController extends Controller

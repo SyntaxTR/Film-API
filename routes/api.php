@@ -1,10 +1,13 @@
 <?php
 use Illuminate\Support\Facades\Route;
-use MucahitTopcu\Filmapi\Controllers\MoviesDatabaseController;
-use MucahitTopcu\Filmapi\Controllers\AdvancedMovieSearchController;
+use Mucahittopcu\Filmapi\Controllers\MoviesDatabaseController;
+use Mucahittopcu\Filmapi\Controllers\AdvancedMovieSearchController;
+use MucahitTopcu\Filmapi\Controllers\MoviesConcurrencyController;
 
 
 Route::prefix('api')->group(function () {
-    Route::get('/moviesdatabase', [MoviesDatabaseController::class, 'searchMovies']);
-    Route::get('/advanced-movie-search', [AdvancedMovieSearchController::class, 'search']);
+    Route::get('/movies/moviesdatabase', [MoviesDatabaseController::class, 'search']);
+    Route::get('/movies/advanced-movie-search', [AdvancedMovieSearchController::class, 'search']);
+    Route::get('/movies', [MoviesConcurrencyController::class, 'processConcurrentRequests']);
 });
+

@@ -4,19 +4,20 @@ namespace MucahitTopcu\Filmapi\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Mucahittopcu\Filmapi\Facades\MovieServiceFacade;
-class MoviesDatabaseController extends Controller
+
+class MoviesConcurrencyController extends Controller
 {
     protected $movieServiceFacade;
-
-    public function __construct(MovieServiceFacade $movieServiceFacade)
+    public function __construct(MovieServiceFacade  $movieServiceFacade)
     {
         $this->movieServiceFacade = $movieServiceFacade;
     }
 
-    public function search(Request $request)
-    {
+    public function processConcurrentRequests(Request $request){
+
         $searchString = $request->input('name');
-        $result = $this->movieServiceFacade->searchMoviesDatabase($searchString);
+        $result = $this->movieServiceFacade->searchConcurrencyMovies($searchString);
         return response()->json($result);
     }
 }
+?>

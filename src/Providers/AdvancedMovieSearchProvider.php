@@ -3,7 +3,7 @@
 namespace Mucahittopcu\Filmapi\Providers;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
-use MucahitTopcu\Filmapi\Controllers\DateController;
+use Mucahittopcu\Filmapi\Helpers\DateHelper;
 
 class AdvancedMovieSearchProvider{
     public function search($searchString): array
@@ -28,7 +28,7 @@ class AdvancedMovieSearchProvider{
                 $responseArray[] = array(
                     "Title" => $dataArray["title"] ?? null,
                     "Image" => $dataArray["poster_path"] ?? null,
-                    "Year" => DateController::parseYear($dataArray["release_date"])
+                    "Year" => DateHelper::parse($dataArray["release_date"], 'Y')
                 );
             }
 
